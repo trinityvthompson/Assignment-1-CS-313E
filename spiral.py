@@ -34,7 +34,7 @@ import math
 def create_spiral(dim):
     """Creates a Spiral given a dimension for the spiral dimeter"""
 
-    # ADD YOUR CODE HERE  
+    matrix = [[0] * dim for _ in range(dim)]
   
 
 
@@ -87,6 +87,6 @@ def main():
         except EOFError:
             break
 
-hello
+
 if __name__ == "__main__":
     main()
