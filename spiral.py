@@ -29,6 +29,7 @@ def sum_adjacent_numbers(spiral, n):
 """
 
 import math
+import sys
 
 def create_spiral(dim):
     """Creates a Spiral given a dimension for the spiral dimeter"""
@@ -107,7 +108,8 @@ def main():
     """
 
     # read the dimension of the grid and value from input file
-    dim = int(input())
+    data = sys.stdin.read().splitlines()
+    dim = int(data[0])
 
     # test that dimension is odd
     if dim % 2 == 0:
