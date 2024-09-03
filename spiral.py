@@ -84,10 +84,10 @@ def sum_sub_grid(grid, val):
     surrounding the parameter val in the grid
     if val is out of bounds, returns 0
     """
-    sum = 0
     for x in range(len(grid)):
         for y in range(len(grid)):
             if grid[x][y] == val:
+                sum = 0
                 for i in range(-1, 2):
                     for j in range(-1, 2):
                         sum += grid[x + i][y + j]
@@ -95,7 +95,7 @@ def sum_sub_grid(grid, val):
                 return sum
                 # sum = (grid[x][y-1]) + (grid[x+1][y]) + (grid[x-1][y]) + (grid[x][y+1]) 
             # else:
-            #     return 0
+    return 0
 
 
 
@@ -118,9 +118,9 @@ def main():
     # create a 2-D list representing the spiral
     mat = create_spiral(dim)
 
-    while True:
+    for line in data[1:]:
         try:
-            sum_val = int(input())
+            sum_val = int(line)
 
             # find sum of adjacent terms
             adj_sum = sum_sub_grid(mat, sum_val)
