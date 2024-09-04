@@ -49,22 +49,22 @@ def create_spiral(dim):
 
     while num <= dim**2:
         for i in range(step):
-            ''' Have to make sure it exits the for loop if the number
+            """Have to make sure it exits the for loop if the number
             is larger than dim**2 because won't go back to read the while
-            loop until for loop completes'''
+            loop until for loop completes"""
             if num > dim**2:
                 break
             row += 1 # Move right
             spiral[col][row] = num
             num += 1
-        
+
         for i in range(step):
             if num > dim**2:
                 break
             col += 1 # Move down
             spiral[col][row] = num
             num += 1
-    
+
         # For the pattern of the spiral, the step size increases every 2 directions
         step += 1
 
@@ -91,8 +91,8 @@ def create_spiral(dim):
 def sum_sub_grid(grid, val):
     """
     Input: grid a 2-D list containing a spiral of numbers
-           val is a number within the range of numbers in
-           the grid
+    val is a number within the range of numbers in
+    the grid
     Output:
     sum_sub_grid returns the sum of the numbers (including val)
     surrounding the parameter val in the grid
@@ -100,7 +100,7 @@ def sum_sub_grid(grid, val):
     """
     for col in range(len(grid)):
         for row in range(len(grid)):
-            # Find the x and y "coordinates" of the value given and set as center of summation 
+            # Find the x and y "coordinates" of the value given and set as center of summation
             if grid[col][row] == val:
                 summation = 0
                 # Want to sum the numbers surrounding; range is exclusive at right end
@@ -125,7 +125,7 @@ def main():
     # read the dimension of the grid and value from input file
     data = sys.stdin.read().splitlines()
     dim = int(data[0])
-    
+
     # test that dimension is odd
     if dim % 2 == 0:
         dim += 1
