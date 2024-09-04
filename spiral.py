@@ -100,16 +100,16 @@ def sum_sub_grid(grid, val):
         for row in range(len(grid)):
             # Find the x and y "coordinates" of the value given and set as center of summation 
             if grid[col][row] == val:
-                sum = 0
+                sum_val = 0
                 # Want to sum the numbers surrounding; range is exclusive at right end
                 for i in range(-1, 2):
                     for j in range(-1, 2):
                         # Make sure not to add numbers surrounding if not within the grid
                         if (0 <= (col + i) < len(grid)) and (0 <= (row + j) < len(grid)):
-                            sum += grid[col + i][row + j]
+                            sum_val += grid[col + i][row + j]
                 # Don't include the value in the center in the sum
-                sum -= val
-                return sum
+                sum_val -= val
+                return sum_val
     return 0
 
 
