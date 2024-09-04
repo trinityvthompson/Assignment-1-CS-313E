@@ -9,9 +9,9 @@
   Partner UT EID: tyt242
 
   Course Name: CS 313E
-  Unique Number: 
-  Date Created: 
-  Date Last Modified:
+  Unique Number: 50165
+  Date Created: 08/29/2024
+  Date Last Modified: 09/03/2024
 
  Input: n is an odd integer between 1 and 100
  Output: returns a 2-D list representing a spiral
