@@ -19,7 +19,7 @@
 
 def create_spiral(n):
     print("REMOVE THIS PRINT AND ADD YOUR CODE")
-    
+
  Input: spiral is a 2-D list and n is an integer
  Output: returns an integer that is the sum of the
          numbers adjacent to n in the spiral
@@ -49,10 +49,12 @@ def create_spiral(dim):
 
     while num <= dim**2:
         for i in range(step):
-            # Have to make sure it exits the for loop if the number is larger than dim**2 because won't go back to read the while loop until for loop completes
+            ''' Have to make sure it exits the for loop if the number
+            is larger than dim**2 because won't go back to read the while
+            loop until for loop completes'''
             if num > dim**2:
                 break
-            row += 1 # Move right 
+            row += 1 # Move right
             spiral[col][row] = num
             num += 1
         
@@ -100,16 +102,16 @@ def sum_sub_grid(grid, val):
         for row in range(len(grid)):
             # Find the x and y "coordinates" of the value given and set as center of summation 
             if grid[col][row] == val:
-                sum = 0
+                summation = 0
                 # Want to sum the numbers surrounding; range is exclusive at right end
                 for i in range(-1, 2):
                     for j in range(-1, 2):
                         # Make sure not to add numbers surrounding if not within the grid
                         if (0 <= (col + i) < len(grid)) and (0 <= (row + j) < len(grid)):
-                            sum += grid[col + i][row + j]
+                            summation += grid[col + i][row + j]
                 # Don't include the value in the center in the sum
-                sum -= val
-                return sum
+                summation -= val
+                return summation
     return 0
 
 
@@ -142,7 +144,6 @@ def main():
             print(adj_sum)
         except EOFError:
             break
-
 
 if __name__ == "__main__":
     main()
