@@ -28,7 +28,6 @@ def sum_adjacent_numbers(spiral, n):
     print("REMOVE THIS PRINT AND ADD YOUR CODE")
 """
 
-import math
 import sys
 
 def create_spiral(dim):
@@ -38,30 +37,30 @@ def create_spiral(dim):
     spiral = [[0] * dim for i in range(dim)]
 
     # Set starting point for the spiral as center of grid
-    x = dim // 2
-    y = dim // 2
+    col = dim // 2
+    row = dim // 2
 
     # Center is 1
-    spiral[x][y] = 1
+    spiral[col][row] = 1
 
     # Since already placed 1 in center, next num = 2
     num = 2
     step = 1
 
-    while num <= dim**2: 
+    while num <= dim**2:
         for i in range(step):
             # Have to make sure it exits the for loop if the number is larger than dim**2 because won't go back to read the while loop until for loop completes
             if num > dim**2:
                 break
-            y += 1 # Move right 
-            spiral[x][y] = num
+            row += 1 # Move right 
+            spiral[col][row] = num
             num += 1
         
         for i in range(step):
             if num > dim**2:
                 break
-            x += 1 # Move down
-            spiral[x][y] = num
+            col += 1 # Move down
+            spiral[col][row] = num
             num += 1
     
         # For the pattern of the spiral, the step size increases every 2 directions
@@ -70,20 +69,20 @@ def create_spiral(dim):
         for i in range(step):
             if num > dim**2:
                 break
-            y -= 1 # Move left
-            spiral[x][y] = num
+            row -= 1 # Move left
+            spiral[col][row] = num
             num += 1
 
         for i in range(step):
             if num > dim**2:
                 break
-            x -= 1 # Move up 
-            spiral[x][y] = num
+            col -= 1 # Move up
+            spiral[col][row] = num
             num += 1
 
         step += 1
 
-    return spiral 
+    return spiral
 
 
 
@@ -97,17 +96,17 @@ def sum_sub_grid(grid, val):
     surrounding the parameter val in the grid
     if val is out of bounds, returns 0
     """
-    for x in range(len(grid)):
-        for y in range(len(grid)):
+    for col in range(len(grid)):
+        for row in range(len(grid)):
             # Find the x and y "coordinates" of the value given and set as center of summation 
-            if grid[x][y] == val:
+            if grid[col][row] == val:
                 sum = 0
                 # Want to sum the numbers surrounding; range is exclusive at right end
                 for i in range(-1, 2):
                     for j in range(-1, 2):
                         # Make sure not to add numbers surrounding if not within the grid
-                        if (0 <= (x + i) < len(grid)) and (0 <= (y + j) < len(grid)):
-                            sum += grid[x + i][y + j]
+                        if (0 <= (col + i) < len(grid)) and (0 <= (row + j) < len(grid)):
+                            sum += grid[col + i][row + j]
                 # Don't include the value in the center in the sum
                 sum -= val
                 return sum
@@ -147,5 +146,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-  
