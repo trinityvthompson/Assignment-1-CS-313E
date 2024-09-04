@@ -48,11 +48,15 @@ def create_spiral(dim):
 
     while num <= dim**2: 
         for i in range(step):
+            if num > dim**2:
+                break
             y += 1 # Move right 
             spiral[x][y] = num
             num += 1
         
         for i in range(step):
+            if num > dim**2:
+                break
             x += 1 # Move down
             spiral[x][y] = num
             num += 1
@@ -60,18 +64,24 @@ def create_spiral(dim):
         step += 1
 
         for i in range(step):
+            if num > dim**2:
+                break
             y -= 1 # Move left
             spiral[x][y] = num
             num += 1
 
         for i in range(step):
+            if num > dim**2:
+                break
             x -= 1 # Move up 
             spiral[x][y] = num
             num += 1
 
         step += 1
 
+    print(spiral)
     return spiral 
+
 
 
 def sum_sub_grid(grid, val):
@@ -90,11 +100,10 @@ def sum_sub_grid(grid, val):
                 sum = 0
                 for i in range(-1, 2):
                     for j in range(-1, 2):
+                        if (x + i) < len(grid) and (y + j) < len(grid): 
                         sum += grid[x + i][y + j]
                 sum -= val
                 return sum
-                # sum = (grid[x][y-1]) + (grid[x+1][y]) + (grid[x-1][y]) + (grid[x][y+1]) 
-            # else:
     return 0
 
 
@@ -110,7 +119,7 @@ def main():
     # read the dimension of the grid and value from input file
     data = sys.stdin.read().splitlines()
     dim = int(data[0])
-
+    
     # test that dimension is odd
     if dim % 2 == 0:
         dim += 1
